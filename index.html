@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soumya Mukherjee – Product Manager</title>
+  <style>
+    /* ---------- Reset & base ---------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      line-height: 1.5;
+      background-color: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    :root {
+      --bg: #f5f6fb;
+      --bg-elevated: #ffffff;
+      --bg-soft: #eef2ff;
+      --text: #0f172a;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-soft: rgba(37, 99, 235, 0.12);
+      --border-subtle: rgba(15, 23, 42, 0.06);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+    }
+
+    body.dark {
+      --bg: #020617;
+      --bg-elevated: #020617;
+      --bg-soft: #020617;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --primary: #60a5fa;
+      --primary-soft: rgba(96, 165, 250, 0.16);
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background-color: color-mix(in srgb, var(--bg) 80%, transparent 20%);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      border-color: var(--primary-soft);
+    }
+
+    .theme-toggle {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: var(--bg-elevated);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--muted);
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+    }
+
+    .theme-toggle span {
+      font-size: 0.9rem;
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.97);
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 3.5rem 0 2.8rem;
+    }
+
+    .hero-card {
+      border-radius: 30px;
+      background: radial-gradient(circle at top left, #3b82f6, #1d4ed8 38%, #020617 100%);
+      color: #f9fafb;
+      padding: 2.6rem 2.4rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.4fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-main h1 {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      margin: 0 0 0.4rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      opacity: 0.9;
+      max-width: 36rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.6rem;
+      font-size: 0.84rem;
+    }
+
+    .pill {
+      padding: 0.38rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      white-space: nowrap;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .pill-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.9;
+    }
+
+    .hero-contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      font-size: 0.89rem;
+    }
+
+    .hero-contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding-bottom: 0.05rem;
+      border-bottom: 1px solid transparent;
+      color: #e5e7eb;
+      opacity: 0.9;
+      transition: opacity 0.15s ease, border-color 0.15s ease;
+    }
+
+    .hero-contact a:hover {
+      opacity: 1;
+      border-color: rgba(248, 250, 252, 0.55);
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      opacity: 0.8;
+      margin-bottom: 0.9rem;
+    }
+
+    .avatar-card {
+      justify-self: end;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.9rem;
+    }
+
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(248, 250, 252, 0.15), rgba(15, 23, 42, 0.4));
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.6rem;
+      color: #f9fafb;
+    }
+
+    .avatar-caption {
+      font-size: 0.78rem;
+      text-align: right;
+      max-width: 210px;
+      opacity: 0.9;
+    }
+
+    /* ---------- Sections ---------- */
+    .section {
+      padding: 1rem 0 0.5rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ---------- Cards / grids ---------- */
+    .card {
+      background-color: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.04);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .skill-card {
+      padding: 0.9rem 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--bg-soft);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+      border-color: var(--primary-soft);
+      background: color-mix(in srgb, var(--bg-soft) 70%, var(--primary-soft) 30%);
+    }
+
+    .skill-name {
+      font-weight: 500;
+    }
+
+    .skill-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ---------- About ---------- */
+    .about-body {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+      gap: 1.4rem;
+    }
+
+    .about-body p {
+      margin: 0 0 0.6rem;
+      font-size: 0.93rem;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-top: 0.3rem;
+    }
+
+    .tag {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px dashed var(--border-subtle);
+      background-color: rgba(15, 23, 42, 0.01);
+      color: var(--muted);
+    }
+
+    /* ---------- Testimonials ---------- */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .testimonial-card {
+      padding: 1.2rem 1.3rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: -22px;
+      left: 18px;
+      font-size: 4rem;
+      color: var(--primary-soft);
+      pointer-events: none;
+    }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--text);
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-meta {
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- CTA / Resume ---------- */
+    .cta-card {
+      margin: 1.4rem 0 2.3rem;
+      padding: 1.4rem 1.6rem;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(120deg, var(--primary-soft), transparent);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .cta-text {
+      max-width: 430px;
+    }
+
+    .cta-text h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-text p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-primary:hover {
+      background-color: color-mix(in srgb, var(--primary) 88%, #ffffff 12%);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      border-color: var(--border-subtle);
+      background-color: var(--bg-elevated);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary-soft);
+      background-color: var(--primary-soft);
+      transform: translateY(-1px);
+    }
+
+    .btn span {
+      font-size: 1rem;
+      margin-right: 0.3rem;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.3rem 0 1.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero-card {
+        padding: 2.1rem 1.7rem;
+      }
+
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .avatar-card {
+        align-items: flex-start;
+      }
+
+      .avatar-caption {
+        text-align: left;
+      }
+
+      .about-body {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .testimonial-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar-inner {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 2.4rem;
+      }
+
+      .hero-card {
+        border-radius: 22px;
+      }
+
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .cta-card {
+        padding: 1.1rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <div class="brand">Soumya Mukherjee</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#resume">Resume</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
+            <span>☾</span>
+            <span>Theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="container">
+          <div class="hero-card">
+            <div class="hero-grid">
+              <div class="hero-main">
+                <div class="hero-meta">Product leadership · Rewards · Growth</div>
+                <h1>Soumya Mukherjee</h1>
+                <p class="hero-tagline">
+                  Senior product manager focused on building rewarding experiences, simplifying customer journeys,
+                  and shipping outcomes that move the funnel — not just features.
+                </p>
+
+                <div class="hero-pill-row">
+                  <div class="pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Product Strategy</span>
+                  </div>
+                  <div class="pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Rewards & Growth</span>
+                  </div>
+                  <div class="pill">
+                    <div class="pill-dot"></div>
+                    <span class="pill-label">Team Leadership</span>
+                  </div>
+                </div>
+
+                <div class="hero-contact">
+                  <a href="mailto:contactsoumya@gmail.com">contactsoumya@gmail.com</a>
+                  <a href="tel:+919876380885">+91-8978630885</a>
+                  <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn profile</a>
+                </div>
+              </div>
+
+              <aside class="avatar-card" aria-hidden="true">
+                <div class="avatar">SM</div>
+                <div class="avatar-caption">
+                  Currently leading product work across rewards, comms, and growth experiments.
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">About</h2>
+            <p class="section-subtitle">A snapshot of how I think about product work.</p>
+          </div>
+          <div class="card about-body">
+            <div>
+              <p>
+                I build products at the intersection of rewards, growth, and communication — designing systems that
+                feel simple to customers and measurable to the business.
+              </p>
+              <p>
+                I enjoy getting close to the problem, working with engineering and data partners, and shipping
+                experiments that compound into long-term leverage, not just one-off wins.
+              </p>
+            </div>
+            <div>
+              <p style="margin-bottom: 0.4rem; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);">
+                I’m usually working on
+              </p>
+              <div class="tag-list">
+                <span class="tag">Rewards & loyalty experiences</span>
+                <span class="tag">Comms / journeys / triggers</span>
+                <span class="tag">Experiment design & funnels</span>
+                <span class="tag">Cross-functional collaboration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-subtitle">Anchored in outcomes, not buzzwords.</p>
+          </div>
+
+          <div class="card-grid">
+            <div class="skill-card">
+              <div class="skill-name">Product Management</div>
+              <div class="skill-meta">End-to-end ownership from discovery to launch.</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Product Strategy</div>
+              <div class="skill-meta">Roadmaps that connect user problems to business goals.</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Team Management</div>
+              <div class="skill-meta">Coaching, feedback, and building clarity for teams.</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Project Management</div>
+              <div class="skill-meta">Structured execution in messy, cross-functional work.</div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-name">Hiring & Onboarding</div>
+              <div class="skill-meta">Bringing in and ramping the right people for the charter.</div>
+            </div>
+            <!-- Add or tweak skills as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Testimonials</h2>
+            <p class="section-subtitle">What people I’ve worked with tend to say.</p>
+          </div>
+
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <p class="testimonial-quote">
+                "Soumya is a highly-skilled product leader with a penchant for first-principles thinking."
+              </p>
+              <div class="testimonial-meta">Former employer</div>
+            </article>
+
+            <article class="testimonial-card">
+              <p class="testimonial-quote">
+                "A dedicated professional who consistently delivers high-quality work."
+              </p>
+              <div class="testimonial-meta">Colleague</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Resume / CTA -->
+      <section class="section" id="resume">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Resume</h2>
+            <p class="section-subtitle">For the details behind the highlights.</p>
+          </div>
+
+          <div class="cta-card">
+            <div class="cta-text">
+              <h3>Want the full story?</h3>
+              <p>
+                View my resume in-browser or download a copy to share with your team.
+                Reach out if you’d like a tailored version for a specific role.
+              </p>
+            </div>
+            <div class="cta-actions">
+              <a href="resume-view.pdf" class="btn btn-outline" target="_blank" rel="noreferrer">
+                <span>👁</span> View resume
+              </a>
+              <a href="resume-download.pdf" class="btn btn-primary">
+                <span>⬇</span> Download resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Soumya Mukherjee</div>
+        <div>Open to roles in product leadership & rewards / growth charters.</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // theme toggle with basic persistence
+    (function () {
+      const stored = window.localStorage.getItem("soumyapm-theme");
+      const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (stored === "dark" || (!stored && prefersDark)) {
+        document.body.classList.add("dark");
+      }
+
+      const toggleBtn = document.querySelector("[data-theme-toggle]");
+      if (!toggleBtn) return;
+
+      const updateIcon = () => {
+        const span = toggleBtn.querySelector("span");
+        if (!span) return;
+        span.textContent = document.body.classList.contains("dark") ? "☀" : "☾";
+      };
+
+      updateIcon();
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        const mode = document.body.classList.contains("dark") ? "dark" : "light";
+        window.localStorage.setItem("soumyapm-theme", mode);
+        updateIcon();
+      });
+    })();
+  </script>
+</body>
+</html>
