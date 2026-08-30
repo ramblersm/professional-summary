@@ -11,32 +11,32 @@
     }
 
     :root {
-      --bg: #f7f8f5;
+      --bg: #f8f8f7;
       --surface: #ffffff;
-      --surface-2: #f0f5ef;
-      --ink: #17211c;
-      --muted: #647064;
-      --primary: #0f766e;
-      --primary-strong: #115e59;
-      --accent: #b45309;
-      --line: rgba(23, 33, 28, 0.12);
-      --line-strong: rgba(23, 33, 28, 0.22);
-      --shadow: 0 18px 48px rgba(24, 37, 31, 0.12);
+      --surface-2: #f1f1ef;
+      --ink: #1c1c1a;
+      --muted: #66645f;
+      --primary: #343a40;
+      --primary-strong: #111111;
+      --accent: #6f6a61;
+      --line: rgba(28, 28, 26, 0.12);
+      --line-strong: rgba(28, 28, 26, 0.28);
+      --shadow: none;
       --radius: 8px;
     }
 
     body.dark {
-      --bg: #101411;
-      --surface: #171d19;
-      --surface-2: #20291f;
-      --ink: #edf3ee;
-      --muted: #aab6ad;
-      --primary: #5eead4;
-      --primary-strong: #99f6e4;
-      --accent: #fbbf24;
-      --line: rgba(237, 243, 238, 0.14);
-      --line-strong: rgba(237, 243, 238, 0.26);
-      --shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+      --bg: #111111;
+      --surface: #181818;
+      --surface-2: #202020;
+      --ink: #f2f2f0;
+      --muted: #aaa7a1;
+      --primary: #d7d4ce;
+      --primary-strong: #ffffff;
+      --accent: #b9b3aa;
+      --line: rgba(242, 242, 240, 0.14);
+      --line-strong: rgba(242, 242, 240, 0.28);
+      --shadow: none;
     }
 
     html {
@@ -113,7 +113,7 @@
     .theme-toggle {
       min-height: 34px;
       border: 1px solid var(--line);
-      border-radius: 999px;
+      border-radius: var(--radius);
       background: var(--surface);
       color: var(--muted);
       cursor: pointer;
@@ -130,9 +130,7 @@
     .hero {
       padding: 56px 0 34px;
       border-bottom: 1px solid var(--line);
-      background:
-        linear-gradient(115deg, color-mix(in srgb, var(--surface-2) 72%, transparent), transparent 62%),
-        var(--bg);
+      background: var(--bg);
     }
 
     .hero-grid {
@@ -198,15 +196,15 @@
       justify-content: center;
       min-height: 42px;
       border: 1px solid var(--line-strong);
-      border-radius: 999px;
+      border-radius: var(--radius);
       padding: 0 18px;
-      font-weight: 700;
+      font-weight: 650;
       font-size: 0.92rem;
-      transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
     }
 
     .button:hover {
-      transform: translateY(-1px);
+      background: var(--surface-2);
       border-color: var(--primary);
     }
 
@@ -217,7 +215,7 @@
     }
 
     body.dark .button-primary {
-      color: #10201d;
+      color: #111111;
     }
 
     .portrait-panel {
@@ -259,8 +257,10 @@
     .metric strong {
       display: block;
       color: var(--ink);
-      font-size: 1.45rem;
-      line-height: 1;
+      font-size: 0.95rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     .metric span {
@@ -358,7 +358,7 @@
 
     .skill {
       border: 1px solid var(--line);
-      border-radius: 999px;
+      border-radius: var(--radius);
       background: var(--surface);
       color: var(--muted);
       padding: 8px 12px;
@@ -530,20 +530,20 @@
 
         <div class="metric-strip" id="impact" aria-label="Selected product impact">
           <div class="metric">
-            <strong>INR 1 Cr</strong>
-            <span>Quarterly disbursals scaled within 6 months through a new referral GTM motion.</span>
+            <strong>Referral growth</strong>
+            <span>Scaled a new referral GTM motion into a meaningful disbursal channel.</span>
           </div>
           <div class="metric">
-            <strong>20M+</strong>
-            <span>Monthly multi-channel communications delivered through Prefr's campaign platform.</span>
+            <strong>Campaign scale</strong>
+            <span>Expanded a high-volume multi-channel communications platform for growth use cases.</span>
           </div>
           <div class="metric">
-            <strong>65%</strong>
-            <span>Reduction in onboarding costs through pre-campaign dedupe APIs.</span>
+            <strong>Cost efficiency</strong>
+            <span>Reduced onboarding costs through pre-campaign dedupe and audience-quality APIs.</span>
           </div>
           <div class="metric">
-            <strong>80M</strong>
-            <span>MAU ad-tech roadmap scale while leading monetization at JioSaavn.</span>
+            <strong>Platform monetisation</strong>
+            <span>Led ad-tech roadmap work at consumer-platform scale while driving monetisation.</span>
           </div>
         </div>
       </div>
@@ -619,22 +619,22 @@
             <article class="timeline-item">
               <div class="timeline-kicker">Prefr, a CRED entity · Sep 2023 to present</div>
               <h3>Senior Product Manager, Growth Charter</h3>
-              <p>Progressed from individual growth products to the broader Growth Charter, leading PM teams across rewards, referrals, communications, personalization, ads, and demand partnerships. Scaled referral-led disbursals to INR 1 Cr quarterly within 6 months, built rewards to a 62% take rate and 83% user end-state rate, and reduced onboarding costs by 65% through dedupe APIs.</p>
+              <p>Progressed from individual growth products to the broader Growth Charter, leading PM teams across rewards, referrals, communications, personalization, ads, and demand partnerships. Scaled referral-led disbursals into a meaningful channel, improved rewards adoption and completion, and reduced onboarding costs through dedupe APIs.</p>
             </article>
             <article class="timeline-item">
               <div class="timeline-kicker">Prefr platform depth</div>
               <h3>Campaigns, attribution, and funnel infrastructure</h3>
-              <p>Owned Prefr's largest in-house campaign platform delivering 20M+ monthly multi-channel communications, added automated campaigns, fallbacks, and push support, and launched first-step click attribution for 1:1 communications. Landing-page experiments over 3 quarters drove a 2.5% top-of-funnel lift and 15 bps improvement from top-of-funnel to disbursal.</p>
+              <p>Owned Prefr's largest in-house campaign platform for high-volume multi-channel communications, added automated campaigns, fallbacks, and push support, and launched first-step click attribution for one-to-one communications. Landing-page experiments drove measurable improvements from top-of-funnel to disbursal.</p>
             </article>
             <article class="timeline-item">
               <div class="timeline-kicker">JioSaavn · Jul 2021 to Mar 2023</div>
               <h3>Senior Product Manager, Ad Tech</h3>
-              <p>Led ad-tech product strategy and roadmap for an 80M MAU platform, managed 2 Product Managers, improved engagement by 28.5% through personalization and analytics, and reduced API failures by 20% during platform migration.</p>
+              <p>Led ad-tech product strategy and roadmap for a large consumer platform, managed Product Managers, improved engagement through personalization and analytics, and improved platform reliability during API migration.</p>
             </article>
             <article class="timeline-item">
               <div class="timeline-kicker">OZiva · Jun 2020 to Jun 2021</div>
               <h3>Product Manager, Loyalty and Payments</h3>
-              <p>Built OZiva Prime, modernized cashback and wallet infrastructure, moved repeat purchases from 22% to 40%, improved payout reliability, and optimized payment gateway integrations to reduce payment costs by 70% and churn by 50%.</p>
+              <p>Built OZiva Prime, modernized cashback and wallet infrastructure, improved repeat purchase behavior and payout reliability, and optimized payment gateway integrations to reduce payment costs and checkout churn.</p>
             </article>
             <article class="timeline-item">
               <div class="timeline-kicker">Earlier roles</div>
