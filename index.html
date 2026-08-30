@@ -3,47 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Soumya Mukherjee – Product Manager</title>
+  <meta name="description" content="Soumya Mukherjee is a fintech product leader focused on growth platforms, payments, rewards, communications, monetisation, and financial infrastructure." />
+  <title>Soumya Mukherjee | Fintech Product Leader</title>
   <style>
-    /* ---------- Reset & base ---------- */
     *, *::before, *::after {
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-      line-height: 1.5;
-      background-color: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      transition: background-color 0.25s ease, color 0.25s ease;
-    }
-
     :root {
-      --bg: #f5f6fb;
-      --bg-elevated: #ffffff;
-      --bg-soft: #eef2ff;
-      --text: #0f172a;
-      --muted: #6b7280;
-      --primary: #2563eb;
-      --primary-soft: rgba(37, 99, 235, 0.12);
-      --border-subtle: rgba(15, 23, 42, 0.06);
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
-      --radius-lg: 18px;
-      --radius-xl: 24px;
+      --bg: #f7f8f5;
+      --surface: #ffffff;
+      --surface-2: #f0f5ef;
+      --ink: #17211c;
+      --muted: #647064;
+      --primary: #0f766e;
+      --primary-strong: #115e59;
+      --accent: #b45309;
+      --line: rgba(23, 33, 28, 0.12);
+      --line-strong: rgba(23, 33, 28, 0.22);
+      --shadow: 0 18px 48px rgba(24, 37, 31, 0.12);
+      --radius: 8px;
     }
 
     body.dark {
-      --bg: #020617;
-      --bg-elevated: #020617;
-      --bg-soft: #020617;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --primary: #60a5fa;
-      --primary-soft: rgba(96, 165, 250, 0.16);
-      --border-subtle: rgba(148, 163, 184, 0.3);
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+      --bg: #101411;
+      --surface: #171d19;
+      --surface-2: #20291f;
+      --ink: #edf3ee;
+      --muted: #aab6ad;
+      --primary: #5eead4;
+      --primary-strong: #99f6e4;
+      --accent: #fbbf24;
+      --line: rgba(237, 243, 238, 0.14);
+      --line-strong: rgba(237, 243, 238, 0.26);
+      --shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
 
     a {
@@ -52,739 +59,689 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
-    }
-
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
+      max-width: 100%;
     }
 
     .container {
-      width: 100%;
-      max-width: 980px;
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
-    /* ---------- Navbar ---------- */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-bottom: 1px solid var(--line);
       backdrop-filter: blur(16px);
-      background-color: color-mix(in srgb, var(--bg) 80%, transparent 20%);
-      border-bottom: 1px solid var(--border-subtle);
     }
 
     .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0;
-      gap: 1rem;
+      gap: 20px;
+      min-height: 64px;
     }
 
     .brand {
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      font-size: 0.98rem;
+      font-size: 0.86rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--muted);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.25rem;
-      font-size: 0.95rem;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
     .nav-links a {
-      color: var(--muted);
-      padding-bottom: 0.15rem;
       border-bottom: 1px solid transparent;
-      transition: color 0.15s ease, border-color 0.15s ease;
+      padding: 3px 0;
     }
 
     .nav-links a:hover {
-      color: var(--primary);
-      border-color: var(--primary-soft);
+      color: var(--primary-strong);
+      border-color: var(--primary);
     }
 
     .theme-toggle {
+      min-height: 34px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      padding: 0.35rem 0.8rem;
-      font-size: 0.8rem;
-      cursor: pointer;
-      background: var(--bg-elevated);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+      background: var(--surface);
       color: var(--muted);
-      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+      cursor: pointer;
+      padding: 0 14px;
+      font: inherit;
+      font-size: 0.86rem;
     }
 
-    .theme-toggle span {
-      font-size: 0.9rem;
+    .theme-toggle:hover {
+      color: var(--ink);
+      border-color: var(--line-strong);
     }
 
-    .theme-toggle:active {
-      transform: scale(0.97);
-    }
-
-    /* ---------- Hero ---------- */
     .hero {
-      padding: 3.5rem 0 2.8rem;
-    }
-
-    .hero-card {
-      border-radius: 30px;
-      background: radial-gradient(circle at top left, #3b82f6, #1d4ed8 38%, #020617 100%);
-      color: #f9fafb;
-      padding: 2.6rem 2.4rem;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
+      padding: 56px 0 34px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(115deg, color-mix(in srgb, var(--surface-2) 72%, transparent), transparent 62%),
+        var(--bg);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.4fr);
-      gap: 2.5rem;
+      grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+      gap: 48px;
       align-items: center;
     }
 
-    .hero-main h1 {
-      font-size: clamp(1.9rem, 3vw, 2.4rem);
-      margin: 0 0 0.4rem;
-      letter-spacing: 0.02em;
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--primary-strong);
+      font-size: 0.8rem;
+      font-weight: 750;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
-    .hero-tagline {
-      font-size: 0.98rem;
-      opacity: 0.9;
-      max-width: 36rem;
-      margin-bottom: 1.4rem;
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(2.45rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      font-weight: 800;
     }
 
-    .hero-pill-row {
+    .hero-copy {
+      max-width: 690px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions,
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 1.6rem;
-      font-size: 0.84rem;
+      gap: 10px;
     }
 
-    .pill {
-      padding: 0.38rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.18);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+    .hero-actions {
+      margin-top: 28px;
+    }
+
+    .contact-row {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .contact-row a {
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .contact-row a:hover {
+      color: var(--primary-strong);
+      border-color: var(--primary);
+    }
+
+    .button {
       display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      white-space: nowrap;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .pill-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.9;
-    }
-
-    .hero-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      font-size: 0.89rem;
-    }
-
-    .hero-contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding-bottom: 0.05rem;
-      border-bottom: 1px solid transparent;
-      color: #e5e7eb;
-      opacity: 0.9;
-      transition: opacity 0.15s ease, border-color 0.15s ease;
-    }
-
-    .hero-contact a:hover {
-      opacity: 1;
-      border-color: rgba(248, 250, 252, 0.55);
-    }
-
-    .hero-meta {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      opacity: 0.8;
-      margin-bottom: 0.9rem;
-    }
-
-    .avatar-card {
-      justify-self: end;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.9rem;
-    }
-
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, rgba(248, 250, 252, 0.15), rgba(15, 23, 42, 0.4));
-      border: 1px solid rgba(248, 250, 252, 0.2);
-      display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 600;
-      font-size: 1.6rem;
-      color: #f9fafb;
-    }
-
-    .avatar-caption {
-      font-size: 0.78rem;
-      text-align: right;
-      max-width: 210px;
-      opacity: 0.9;
-    }
-
-    /* ---------- Sections ---------- */
-    .section {
-      padding: 1rem 0 0.5rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-      gap: 1rem;
-    }
-
-    .section-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .section-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    /* ---------- Cards / grids ---------- */
-    .card {
-      background-color: var(--bg-elevated);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      padding: 1.4rem 1.5rem;
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.04);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.75rem;
-    }
-
-    .skill-card {
-      padding: 0.9rem 1rem;
-      border-radius: var(--radius-lg);
-      background: var(--bg-soft);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background-color 0.12s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
-      border-color: var(--primary-soft);
-      background: color-mix(in srgb, var(--bg-soft) 70%, var(--primary-soft) 30%);
-    }
-
-    .skill-name {
-      font-weight: 500;
-    }
-
-    .skill-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    /* ---------- About ---------- */
-    .about-body {
-      display: grid;
-      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
-      gap: 1.4rem;
-    }
-
-    .about-body p {
-      margin: 0 0 0.6rem;
-      font-size: 0.93rem;
-      color: var(--muted);
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.3rem;
-    }
-
-    .tag {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.6rem;
+      min-height: 42px;
+      border: 1px solid var(--line-strong);
       border-radius: 999px;
-      border: 1px dashed var(--border-subtle);
-      background-color: rgba(15, 23, 42, 0.01);
-      color: var(--muted);
+      padding: 0 18px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
     }
 
-    /* ---------- Testimonials ---------- */
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: var(--primary);
     }
 
-    .testimonial-card {
-      padding: 1.2rem 1.3rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: var(--bg-elevated);
-      position: relative;
+    .button-primary {
+      background: var(--primary-strong);
+      border-color: var(--primary-strong);
+      color: #ffffff;
+    }
+
+    body.dark .button-primary {
+      color: #10201d;
+    }
+
+    .portrait-panel {
+      justify-self: end;
+      width: min(100%, 330px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .testimonial-card::before {
-      content: "“";
-      position: absolute;
-      top: -22px;
-      left: 18px;
-      font-size: 4rem;
-      color: var(--primary-soft);
-      pointer-events: none;
+    .portrait {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      object-fit: cover;
     }
 
-    .testimonial-quote {
-      font-size: 0.9rem;
-      color: var(--text);
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial-meta {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
+    .portrait-caption {
+      padding: 18px;
       color: var(--muted);
-      position: relative;
-      z-index: 1;
+      font-size: 0.92rem;
     }
 
-    /* ---------- CTA / Resume ---------- */
-    .cta-card {
-      margin: 1.4rem 0 2.3rem;
-      padding: 1.4rem 1.6rem;
-      border-radius: var(--radius-xl);
-      background: linear-gradient(120deg, var(--primary-soft), transparent);
-      border: 1px solid var(--border-subtle);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.2rem;
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 42px;
     }
 
-    .cta-text {
-      max-width: 430px;
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 18px;
     }
 
-    .cta-text h3 {
-      margin: 0 0 0.3rem;
-      font-size: 1.05rem;
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.45rem;
+      line-height: 1;
     }
 
-    .cta-text p {
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .section {
+      padding: 44px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+
+    .section-title {
       margin: 0;
-      font-size: 0.9rem;
-      color: var(--muted);
+      color: var(--primary-strong);
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
-    .cta-actions {
+    .section-lede {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .focus-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .focus-card,
+    .timeline-item,
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 18px;
+    }
+
+    .focus-card h3,
+    .timeline-item h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .focus-card p,
+    .timeline-item p,
+    .quote-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-kicker {
+      margin-bottom: 7px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .skills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 8px;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.55rem 1.2rem;
+    .skill {
+      border: 1px solid var(--line);
       border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: #f9fafb;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
-    }
-
-    .btn-primary:hover {
-      background-color: color-mix(in srgb, var(--primary) 88%, #ffffff 12%);
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      border-color: var(--border-subtle);
-      background-color: var(--bg-elevated);
-      color: var(--text);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--primary-soft);
-      background-color: var(--primary-soft);
-      transform: translateY(-1px);
-    }
-
-    .btn span {
-      font-size: 1rem;
-      margin-right: 0.3rem;
-    }
-
-    /* ---------- Footer ---------- */
-    footer {
-      border-top: 1px solid var(--border-subtle);
-      padding: 1.3rem 0 1.4rem;
-      font-size: 0.8rem;
+      background: var(--surface);
       color: var(--muted);
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: 650;
     }
 
-    footer .footer-inner {
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .quote-card p {
+      color: var(--ink);
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-style: normal;
+    }
+
+    .resume-band {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface-2);
+      padding: 24px;
     }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .hero-card {
-        padding: 2.1rem 1.7rem;
-      }
-
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .avatar-card {
-        align-items: flex-start;
-      }
-
-      .avatar-caption {
-        text-align: left;
-      }
-
-      .about-body {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .card-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .testimonial-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .resume-band h2 {
+      margin: 0 0 6px;
+      font-size: 1.2rem;
     }
 
-    @media (max-width: 640px) {
+    .resume-band p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 22px 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 860px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
       .navbar-inner {
-        flex-wrap: wrap;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
       }
 
       .nav-links {
-        justify-content: flex-start;
+        width: 100%;
         flex-wrap: wrap;
       }
 
       .hero {
-        padding-top: 2.4rem;
+        padding-top: 36px;
       }
 
-      .hero-card {
-        border-radius: 22px;
+      .hero-grid,
+      .section-header,
+      .two-column {
+        grid-template-columns: 1fr;
+        gap: 22px;
       }
 
-      .card-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .portrait-panel {
+        justify-self: start;
+        display: grid;
+        grid-template-columns: 104px minmax(0, 1fr);
+        width: 100%;
       }
 
-      .cta-card {
-        padding: 1.1rem 1.1rem;
+      .portrait {
+        height: 100%;
+        min-height: 126px;
+      }
+
+      .metric-strip,
+      .focus-list,
+      .quote-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .resume-band {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .metric {
+        padding: 16px;
+      }
+
+      .section {
+        padding: 34px 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- Navbar -->
-    <header class="navbar">
-      <div class="container navbar-inner">
-        <div class="brand">Soumya Mukherjee</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#testimonials">Testimonials</a>
-          <a href="#resume">Resume</a>
-          <button class="theme-toggle" type="button" aria-label="Toggle dark mode" data-theme-toggle>
-            <span>☾</span>
-            <span>Theme</span>
-          </button>
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a class="brand" href="#top">Soumya Mukherjee</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#impact">Impact</a>
+        <a href="#thesis">Thesis</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow">Fintech Product Leader · Growth · Payments · Platforms</p>
+            <h1>Moving from growth depth into broader fintech product leadership.</h1>
+            <p class="hero-copy">
+              I lead multi-product growth platforms across rewards, payments, communications, demand
+              partnerships, ads, and personalized journeys. My next chapter is broader fintech ownership,
+              with deeper product depth in payments and financial infrastructure.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="resume.pdf" target="_blank" rel="noreferrer">View Resume</a>
+              <a class="button" href="https://www.linkedin.com/in/contactsoumyam/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+            <div class="contact-row" aria-label="Contact details">
+              <a href="mailto:contactsoumyam@gmail.com">contactsoumyam@gmail.com</a>
+              <a href="tel:+918978630885">+91 89786 30885</a>
+              <span>Mumbai, India</span>
+            </div>
+          </div>
+
+          <aside class="portrait-panel">
+            <img class="portrait" src="Soumya.jpg" alt="Soumya Mukherjee" />
+            <div class="portrait-caption">
+              Currently leading Prefr's Growth Charter, expanding from monetisation and funnel growth into reusable fintech platform capabilities.
+            </div>
+          </aside>
+        </div>
+
+        <div class="metric-strip" id="impact" aria-label="Selected product impact">
+          <div class="metric">
+            <strong>INR 1 Cr</strong>
+            <span>Quarterly disbursals scaled within 6 months through a new referral GTM motion.</span>
+          </div>
+          <div class="metric">
+            <strong>20M+</strong>
+            <span>Monthly multi-channel communications delivered through Prefr's campaign platform.</span>
+          </div>
+          <div class="metric">
+            <strong>65%</strong>
+            <span>Reduction in onboarding costs through pre-campaign dedupe APIs.</span>
+          </div>
+          <div class="metric">
+            <strong>80M</strong>
+            <span>MAU ad-tech roadmap scale while leading monetization at JioSaavn.</span>
+          </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero" id="top">
-        <div class="container">
-          <div class="hero-card">
-            <div class="hero-grid">
-              <div class="hero-main">
-                <div class="hero-meta">Product leadership · Rewards · Growth</div>
-                <h1>Soumya Mukherjee</h1>
-                <p class="hero-tagline">
-                  Experienced product leader focused on building gamification experiences, simplifying customer journeys,
-                  and shipping outcomes that move the funnel.
-                </p>
-
-                <div class="hero-pill-row">
-                  <div class="pill">
-                    <div class="pill-dot"></div>
-                    <span class="pill-label">Product Strategy</span>
-                  </div>
-                  <div class="pill">
-                    <div class="pill-dot"></div>
-                    <span class="pill-label">Growth & Gamification</span>
-                  </div>
-                  <div class="pill">
-                    <div class="pill-dot"></div>
-                    <span class="pill-label">Team Leadership</span>
-                  </div>
-                </div>
-
-                <div class="hero-contact">
-                  <a href="mailto:contactsoumyam@gmail.com">contactsoumyam@gmail.com</a>
-                  <a href="tel:+918978630885">+91-8978630885</a>
-                  <a href="https://www.linkedin.com/in/contactsoumyam/" target="_blank" rel="noreferrer">LinkedIn profile</a>
-                </div>
-              </div>
-
-              <aside class="avatar-card" aria-hidden="true">
-              <div class="avatar">
-  <img src="Soumya.jpg" alt="Soumya Mukherjee" style="width:100%; height:100%; object-fit: cover; border-radius: 24px;">
-</div>
-
-                <div class="avatar-caption">
-                  Currently leading Growth & Gamification charter across rewards, comms and demand partner platform products.
-                </div>
-              </aside>
-            </div>
-          </div>
+    <section class="section" id="thesis">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Thesis</h2>
+          <p class="section-lede">
+            My growth and monetisation background is already strong. The next valuable layer of career
+            capital I am building is deeper fintech infrastructure and payments expertise, paired with
+            broader scope across platform, customer, and commercial outcomes.
+          </p>
         </div>
-      </section>
-
-      <!-- About -->
-      <section class="section" id="about">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">About</h2>
-            <p class="section-subtitle">A snapshot of how I think about product work.</p>
-          </div>
-          <div class="card about-body">
-            <div>
-              <p>
-                I build products at the intersection of rewards, growth, and communication — designing systems that
-                delight my users and improve brand stickiness.
-              </p>
-              <p>
-                I enjoy getting close to the problem, working with engineering and data partners, and shipping
-                experiments that compound into long-term leverage, not just one-off wins.
-              </p>
-            </div>
-            <div>
-              <p style="margin-bottom: 0.4rem; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted);">
-                I’m usually working on
-              </p>
-              <div class="tag-list">
-                <span class="tag">Rewards & Gamification experiences</span>
-                <span class="tag">Comms / journeys / triggers</span>
-                <span class="tag">Experiment design & funnels</span>
-                <span class="tag">Cross-functional collaboration</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="section" id="skills">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Skills</h2>
-            <p class="section-subtitle">Anchored in outcomes.</p>
-          </div>
-
-          <div class="card-grid">
-            <div class="skill-card">
-              <div class="skill-name">Product Management</div>
-              <div class="skill-meta">End-to-end ownership from product strategy to launch.</div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-name">Product Strategy</div>
-              <div class="skill-meta">Roadmaps that connect user problems to business goals.</div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-name">Team Management</div>
-              <div class="skill-meta">Coaching, feedback, and building clarity for teams.</div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-name">Project Management</div>
-              <div class="skill-meta">Structured execution in messy, cross-functional work.</div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-name">Hiring & Onboarding</div>
-              <div class="skill-meta">Bringing in and ramping the right people.</div>
-            </div>
-            <!-- Add or tweak skills as needed -->
-          </div>
-        </div>
-      </section>
-
-      <!-- Testimonials -->
-      <section class="section" id="testimonials">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Testimonials</h2>
-            <p class="section-subtitle">What people I’ve worked with tend to say.</p>
-          </div>
-
-          <div class="testimonial-grid">
-            <article class="testimonial-card">
-              <p class="testimonial-quote">
-                "Soumya is a highly-skilled product leader with a penchant for first-principles thinking."
-              </p>
-              <div class="testimonial-meta">Former employer</div>
+        <div class="two-column">
+          <div></div>
+          <div class="focus-list">
+            <article class="focus-card">
+              <h3>Broader fintech mandate</h3>
+              <p>Move beyond a pure growth charter into ownership of customer-facing and infrastructure products that shape money movement, trust, and financial access.</p>
             </article>
-
-            <article class="testimonial-card">
-              <p class="testimonial-quote">
-                "A dedicated professional who consistently delivers high-quality work."
-              </p>
-              <div class="testimonial-meta">Colleague</div>
+            <article class="focus-card">
+              <h3>Recognised seniority</h3>
+              <p>Seek product scope that matches current leadership experience: portfolio ownership, PM team leadership, commercial accountability, and room for regional or global exposure.</p>
             </article>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Resume / CTA -->
-      <section class="section" id="resume">
-        <div class="container">
-          <div class="section-header">
-            <h2 class="section-title">Resume</h2>
-            <p class="section-subtitle">For the details behind the highlights.</p>
-          </div>
-
-          <div class="cta-card">
-            <div class="cta-text">
-              <h3>Want the full story?</h3>
-              <p>
-                View my resume in-browser or download a copy to share with your team.
-                Reach out if you’d like a tailored version for a specific role.
-              </p>
-            </div>
-            <div class="cta-actions">
-              <a href="resume.pdf" class="btn btn-outline" target="_blank" rel="noreferrer">
-                <span>👁</span> View resume
-              </a>
-              <a href="resume.pdf" class="btn btn-primary">
-                <span>⬇</span> Download resume
-              </a>
-            </div>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Focus</h2>
+          <p class="section-lede">
+            My strongest work sits where product judgment, data, GTM, engineering execution, and platform leverage have to move together.
+          </p>
+        </div>
+        <div class="two-column">
+          <div></div>
+          <div class="focus-list">
+            <article class="focus-card">
+              <h3>Growth platforms</h3>
+              <p>Rewards, referrals, communications, personalization, and demand partner products tied to CAC, revenue, retention, and disbursal outcomes.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Payments and wallets</h3>
+              <p>Payment gateway optimization, wallet reliability, cashback infrastructure, and loyalty products that connect UX quality to cost and retention.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Financial infrastructure</h3>
+              <p>Reusable APIs, campaign platforms, attribution systems, audience quality controls, and infrastructure primitives for scalable fintech growth.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Monetisation systems</h3>
+              <p>Ad-tech, analytics, campaign intelligence, and partner-facing products that improve relevance, reliability, and commercial yield.</p>
+            </article>
           </div>
         </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container footer-inner">
-        <div>© <span id="year"></span> Soumya Mukherjee</div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-lede">A compressed view of the roles behind the platform, fintech, and growth outcomes.</p>
+        </div>
+        <div class="two-column">
+          <div></div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-kicker">Prefr, a CRED entity · Sep 2023 to present</div>
+              <h3>Senior Product Manager, Growth Charter</h3>
+              <p>Progressed from individual growth products to the broader Growth Charter, leading PM teams across rewards, referrals, communications, personalization, ads, and demand partnerships. Scaled referral-led disbursals to INR 1 Cr quarterly within 6 months, built rewards to a 62% take rate and 83% user end-state rate, and reduced onboarding costs by 65% through dedupe APIs.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-kicker">Prefr platform depth</div>
+              <h3>Campaigns, attribution, and funnel infrastructure</h3>
+              <p>Owned Prefr's largest in-house campaign platform delivering 20M+ monthly multi-channel communications, added automated campaigns, fallbacks, and push support, and launched first-step click attribution for 1:1 communications. Landing-page experiments over 3 quarters drove a 2.5% top-of-funnel lift and 15 bps improvement from top-of-funnel to disbursal.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-kicker">JioSaavn · Jul 2021 to Mar 2023</div>
+              <h3>Senior Product Manager, Ad Tech</h3>
+              <p>Led ad-tech product strategy and roadmap for an 80M MAU platform, managed 2 Product Managers, improved engagement by 28.5% through personalization and analytics, and reduced API failures by 20% during platform migration.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-kicker">OZiva · Jun 2020 to Jun 2021</div>
+              <h3>Product Manager, Loyalty and Payments</h3>
+              <p>Built OZiva Prime, modernized cashback and wallet infrastructure, moved repeat purchases from 22% to 40%, improved payout reliability, and optimized payment gateway integrations to reduce payment costs by 70% and churn by 50%.</p>
+            </article>
+            <article class="timeline-item">
+              <div class="timeline-kicker">Earlier roles</div>
+              <h3>Jivox, Microsoft, Deloitte US India</h3>
+              <p>Shipped ad platform, compliance, cloud-connected vehicle testing, and enterprise identity work across consulting and product environments.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-lede">A product toolkit built around platform leverage, financial outcomes, and customer trust.</p>
+        </div>
+        <div class="two-column">
+          <div></div>
+          <div class="skills">
+            <span class="skill">Product Strategy</span>
+            <span class="skill">Roadmapping</span>
+            <span class="skill">Fintech Platforms</span>
+            <span class="skill">Payments</span>
+            <span class="skill">Wallets and Cashback</span>
+            <span class="skill">AI-driven Growth</span>
+            <span class="skill">A/B Testing</span>
+            <span class="skill">Rewards Platforms</span>
+            <span class="skill">Communications Platforms</span>
+            <span class="skill">Attribution</span>
+            <span class="skill">CAC Optimization</span>
+            <span class="skill">Ad Tech</span>
+            <span class="skill">GTM Strategy</span>
+            <span class="skill">Customer Retention</span>
+            <span class="skill">Data-driven Decisions</span>
+            <span class="skill">SaaS and Fintech</span>
+            <span class="skill">Team Leadership</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Testimonials</h2>
+          <p class="section-lede">Short signals from people who have worked with me.</p>
+        </div>
+        <div class="two-column">
+          <div></div>
+          <div class="quote-grid">
+            <blockquote class="quote-card">
+              <p>"Soumya is a highly-skilled product leader with a penchant for first-principles thinking."</p>
+              <cite>Former employer</cite>
+            </blockquote>
+            <blockquote class="quote-card">
+              <p>"A dedicated professional who consistently delivers high-quality work."</p>
+              <cite>Colleague</cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="resume">
+      <div class="container">
+        <div class="resume-band">
+          <div>
+            <h2>Need the full resume?</h2>
+            <p>Open the latest two-page PDF for detailed role history, platform outcomes, education, and certifications.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="resume.pdf" target="_blank" rel="noreferrer">Open PDF</a>
+            <a class="button" href="mailto:contactsoumyam@gmail.com">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Soumya Mukherjee</div>
+  </footer>
 
   <script>
-    // year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // theme toggle with basic persistence
     (function () {
-      const stored = window.localStorage.getItem("soumyapm-theme");
+      const key = "soumyapm-theme";
+      const stored = window.localStorage.getItem(key);
       const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const toggle = document.querySelector("[data-theme-toggle]");
 
-      if (stored === "dark" || (!stored && prefersDark)) {
-        document.body.classList.add("dark");
+      function setMode(mode) {
+        document.body.classList.toggle("dark", mode === "dark");
+        if (toggle) toggle.textContent = mode === "dark" ? "Light" : "Dark";
       }
 
-      const toggleBtn = document.querySelector("[data-theme-toggle]");
-      if (!toggleBtn) return;
+      setMode(stored || (prefersDark ? "dark" : "light"));
 
-      const updateIcon = () => {
-        const span = toggleBtn.querySelector("span");
-        if (!span) return;
-        span.textContent = document.body.classList.contains("dark") ? "☀" : "☾";
-      };
-
-      updateIcon();
-
-      toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        const mode = document.body.classList.contains("dark") ? "dark" : "light";
-        window.localStorage.setItem("soumyapm-theme", mode);
-        updateIcon();
-      });
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          const next = document.body.classList.contains("dark") ? "light" : "dark";
+          window.localStorage.setItem(key, next);
+          setMode(next);
+        });
+      }
     })();
   </script>
 </body>
